@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/Himanshu-pvt-repo/argocd.git
     targetRevision: HEAD
-    path: data
+    path: pull
   destination: 
     server: https://kubernetes.default.svc
     namespace: default
