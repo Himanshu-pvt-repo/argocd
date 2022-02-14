@@ -6,7 +6,7 @@ spec:
   selector:
     matchLabels:
       app: banana
-  replicas: 2
+  replicas: 4
   template:
     metadata:
       labels:
