@@ -1,12 +1,19 @@
-kind: Pod
-apiVersion: v1
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: apple-app
-  labels:
-    app: apple
+  name: mohsin-deploy
 spec:
-  containers:
-    - name: apple-app
-      image: hashicorp/http-echo
-      args:
-        - "-text=apple"
+  selector:
+    matchLabels:
+      app: apple
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: apple
+    spec:
+      containers:
+      - name: mohsin-argo
+        image: nanajanashia/argocd-app:1.2
+        ports:
+        - containerPort: 8080
