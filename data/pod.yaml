@@ -1,10 +1,19 @@
-kind: Pod
-apiVersion: v1
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: apple-app
-  labels:
-    app: apple
+  name: mohsin-deploy
 spec:
-  containers:
-    - name: apple-app
-      image: vimal13/apache-webserver-php
+  selector:
+    matchLabels:
+      app: apple
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: apple
+    spec:
+      containers:
+      - name: mohsin-argo
+        image: vimal13/apache-webserver-php
+        ports:
+        - containerPort: 80
